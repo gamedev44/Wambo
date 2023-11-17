@@ -55,6 +55,7 @@ if %ans%==STARTCIG (
 cls
 echo Loading network booster configurations. 
 ping localhost -n 5 >nul
+goto FLUSHCACHE
 
 :FLUSHCACHE
 ipconfig /displaydns
@@ -62,6 +63,8 @@ ipconfig /flushdns
 echo NETWORK SPEEDUP COMPLETED. Press any key to go back to the menu.
 pause >nul
 goto MENU
+
+
 
 :CIGLAUNCHER
 cls
@@ -110,16 +113,51 @@ echo **         Initializing client          **
 echo **                                      **
 echo *******************************************
 
-ping localhost -n 30 >nul
+ping localhost -n 10 >nul
 
 echo Running CIG Launcher 
-start "" "C:\Program Files\Roberts Space Industries\RSI Launcher\RSI Launcher.exe"
+"C:\Program Files\Roberts Space Industries\RSI Launcher\RSI Launcher.exe" "C:\Program Files\Roberts Space Industries\StarCitizen\LIVE\Bin64\StarCitizen.exe" -server -log -nosteam
+
+goto logo2
+
+:logo2
+
+echo                                           **********************                                     
+echo                                         *************************                                  
+echo                                       *****************************                                 
+echo                                     ********************************                                 
+echo                                   **********************************                                 
+echo                                 *************************************                                  
+echo                                ************************************                                  
+echo                                *********************************                                   
+echo                               ***********************************                                   
+echo                              **************************************                                
+echo                            *******************************************                              
+echo                            *********************************************                            
+echo                            ***      ****************             *********                           
+echo                            **        **************               *******                          
+echo                            **          ***********                *******                          
+echo                            **         *************               *******                          
+echo                            *         ***************            *********                          
+echo                             ********************************************                           
+echo                              **********  **  *************************                           
+echo                                *********      **********************                              
+echo                                   ******  **   *******************                                
+echo                                     *****  *   *****************                                   
+echo                                      *************************                                      
+echo                                       **********************                                         
+echo                                         ****************                                            
+echo                                          ** ** ** **                                              
+echo                                          ** ** ** **
+echo  Server Started Successfully [LAN] INITIALIZED
 pause >nul
+
 
 goto MENU
 
+
+
 :GPUBOOSTER
-cls
 REM Prompt user to select the AMD Adrenalin executable using File Explorer
 set /p adrenalinPath=Enter the path to AMD Adrenalin (e.g., C:\Program Files\AMD\CNext\CNext\adrenalin.exe): 
 
@@ -148,4 +186,5 @@ if exist "%adrenalinPath%" (
 )
 
 pause
-goto MENU
+
+exit
